@@ -160,11 +160,16 @@ nav {
 	}
 	a, span.gc-cs-link {
 		color:@cloudy;
+		text-decoration:none;
+		&:hover {
+			border-bottom:1px dotted @cloudy;
+		}
 	}
 	label {
 		font-weight:normal;
 		display:inline-block;
-		width:20%;
+		margin:0;
+		width:22%;
 	}
 	ul {
 		margin:0;
@@ -181,6 +186,11 @@ nav {
 		li {
 			display:inline-block;
 			margin-right:16px;
+			a {
+				&:hover {
+					border:0;
+				}
+			}
 			&:last-child {
 				margin-right:0;
 			}
@@ -199,11 +209,13 @@ nav {
 #content-footer-secondary {
 	margin:.4em auto;
 	color:@darkGray;
+	font-style:italic;
 	a {
 		color:@darkGray;
 	}
 	.login {
 		text-align:right;
+		font-style:normal;
 	}
 }
 

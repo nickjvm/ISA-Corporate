@@ -68,6 +68,7 @@ nav ul li a:hover {
 .jumbotron {
   margin-top: -98px;
   margin-bottom: 0;
+  padding: 0;
   padding-top: 118px;
   padding-bottom: 0;
   background: url(../img/blurbg.jpg) center center no-repeat;
@@ -96,7 +97,8 @@ nav ul li a:hover {
 .jumbotron #slider img {
   width: 100%;
   max-width: 900px;
-  height: 400px;
+  height: auto;
+  max-height: 400px;
   z-index: 0;
 }
 .jumbotron #slider aside {

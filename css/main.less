@@ -60,6 +60,7 @@ nav {
 	z-index:1;
 	position:relative;
 	box-shadow:0 3px 5px -1px rgba(0,0,0,.3);
+	text-align:center;
 
 	#logo {
 		display:inline-block;
@@ -67,7 +68,6 @@ nav {
 			width:100%;
 			max-width:205px;
 			height:auto;
-			padding:.5em 0;
 			box-sizing:content-box;
 			vertical-align:middle;
 		}
@@ -76,27 +76,28 @@ nav {
 		display:inline-block;
 		vertical-align:middle;
 		text-align:right;
-		margin:0;
 		padding:0;
-		margin-top:6px;
+		margin:0;
 		li {
-			font:16px Georgia,"Times New Roman", serif;
+			font:15px Georgia,"Times New Roman", serif;
 			font-style:italic;
 			display:inline-block;
+			margin-left:-3px;
 			a {
 				font-weight:normal;
 				display:block;
-				padding:20px 14px;
+
+				padding:20px 5px;
 				color:@black;
 				position:relative;
 				&:after {
 					position:absolute;
 					content:"";
-					right:0;
+					right:-1px;
 					top:20px;
 					bottom:20px;
 					border:1px solid @contrastGray;
-					border-width:0 1px 0 0 0;
+					border-width:0 1px 0 0;
 				}
 
 				&:hover, &.active {
@@ -120,7 +121,7 @@ nav {
 
 }
 .jumbotron {
-	margin-top:-95px;
+	margin-top:-125px;
 	margin-bottom:0;
 	padding:0;
 	padding-bottom:0;
@@ -160,13 +161,31 @@ nav {
 			position:absolute;
 			right:0;
 			bottom:20px;
-			padding-top:15px;
+			padding:15px;
 			background:rgba(245,245,245,.90);
-			.buttons {
-				margin-top:0;
+			.buttons, .buttons li {
+				margin:0;
 			}
 		}
 	}
+}
+.not-front {
+	.jumbotron {
+		margin-top:-85px;
+		#slider {
+			height:350px;
+			background-size:cover;
+			background-position:center center;
+		}
+	}
+	#content-main {
+		.story {
+			padding-bottom:0;
+			margin-bottom:0;
+			border:0;
+		}
+	}
+	
 }
 #content-top {
 	background-color:@tWhite;
@@ -174,7 +193,15 @@ nav {
 	position:relative;
 	z-index:2;
 	background:@smoke; //url(/img/witewall.png);
-	padding:7px 0;
+	text-align:right;
+	.btn {
+		margin:7px;
+	}
+	.search-group {
+		display:inline-block;
+		width:290px;
+		margin:7px;
+	}
 	.policy {
 		text-align:right;
 	}
@@ -183,13 +210,13 @@ nav {
 		font-size: 12px;
 		vertical-align: middle;
 		&[type=search] {
-			width: 71%;
+			width: 200px;
 			margin: 0 0 0 1em;
 			padding: 2px 8px;
 			line-height:1.6;
 		}
 		&[type=submit] {
-			width: 26%;
+			width: 75px;
 			margin: 0 0 0 -2px;
 			text-align: center;
 			box-sizing: border-box;
@@ -209,12 +236,14 @@ nav {
 	}
 	.sticky {
 		margin-bottom:2em;
-		> div {
-			vertical-align:top;
-		}
 		.sticky-img {
 			text-align:center;
 			margin-bottom:1em;
+			padding:0 15px 15px 0;
+		}
+		.sticky-story {
+			overflow:hidden;
+			vertical-align:top;
 		}
 	}
 	.story {
@@ -241,9 +270,31 @@ nav {
 		&:last-child {
 			border-bottom:0;
 		}
+		.body-img {
+			display:block;
+			text-align:center;
+			padding-bottom:1em;
+
+		}
+		.body {
+			display:block;
+			p {
+				margin-bottom:1em;
+				&:last-child {
+					margin-bottom:0;
+				}
+			}
+		}
 	}
 	.sidebar {
-		border-left:1px solid @contrastGray;
+		.block {
+			h2 {
+				font-size:1.2em;
+			}
+			ul {
+				list-style-type:square;
+			}
+		}
 	}
 	.isa-now {
 		h3 {
@@ -299,6 +350,9 @@ nav {
 			float:right;
 		}
 	}
+	.gallery {
+		margin-top:1em;
+	}
 }
 
 #content-footer {
@@ -306,7 +360,7 @@ nav {
 	background:@darkGray;
 	color:@cloudy;
 	padding:1em 0;
-	margin-top:3em;
+	margin-top:2em;
 	h4 {
 		color:@coolBlack;
 	}
@@ -377,7 +431,25 @@ nav {
 	}
 }
 @media (min-width:768px) {
+
+
 	#content-main {
+		
+		.content-left {
+			border-right:1px solid @contrastGray;
+		}
+		.sticky {
+			.sticky-img {
+				display:table-cell;
+				width:180px;
+				padding:0 15px 15px 0;
+			}
+			.sticky-story {
+				padding:0 0 15px 15px;
+				display:table-cell;
+				vertical-align:top;
+			}
+		}
 		.story {
 			.story-img {
 				display:table-cell;
@@ -399,7 +471,52 @@ nav {
 		}
 	}
 }
+@media (max-width:768px) {
+	.jumbotron {
+		//display:none;
+	}
+}
+@media (min-width:768px) {
+	#content-main {
+
+		.story {
+			.body-img {
+				display:table-cell;
+				width:27%;
+				padding-right:30px;
+			}
+			.body {
+				display:table-cell;
+			}
+		}
+		.gallery {
+			margin-left:27%;
+		}
+	}
+}
+@media (min-width:992px)  {
+	nav {
+		text-align:left;
+		ul {
+			margin-top:11px;
+		}
+		.logo {
+			text-align:right;
+			#logo {
+				padding:.5em 0;
+			}
+		}
+	}
+}
 @media (min-width:1200px) {
+	nav ul {
+		li {
+			font-size:16px;
+			a {
+				padding:20px 14px;
+			}
+		}
+	}
 	.jumbotron {
 		background-position:center -150px;
 	}
@@ -436,6 +553,7 @@ nav {
 		color:@harvest;
 	}
 }
+
 
 
 

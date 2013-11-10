@@ -1,0 +1,25 @@
+name = Harvest
+description = Bootstrap responsive site using ISA branding, dubbed Harvest
+
+screenshot = screenshot.png
+
+core = 7.x
+engine = phptemplate
+
+regions[content_top] = Top Content
+regions[content] = Main Content
+regions[jumbotron] = Jumbotron
+regions[footer] = Page Footer
+
+scripts[] = js/vendor/modernizr-2.6.2-respond-1.1.0.min.js
+scripts[] = js/vendor/bootstrap.min.js
+scripts[] = js/main.js
+
+stylesheets[screen][] = css/bootstrap-theme.min.css
+stylesheets[screen][] = css/bootstrap.min.css
+stylesheets[screen][] = css/main.css
+;stylesheets[print][] = print.css
+
+; Support shortcut module links
+settings[shortcut_module_link] = 1
+

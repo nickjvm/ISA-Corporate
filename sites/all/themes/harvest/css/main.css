@@ -208,6 +208,7 @@ nav ul li:last-child a:after {
 }
 #content-main img {
   max-width: 100%;
+  height: auto;
 }
 #content-main .sticky {
   margin-bottom: 2em;
@@ -235,7 +236,7 @@ nav ul li:last-child a:after {
 #content-main .story .story-img {
   width: 27%;
   display: none;
-  padding-right: 15px;
+  padding-right: 30px;
 }
 #content-main .story h2 {
   margin-top: 0;
@@ -414,9 +415,6 @@ nav ul li:last-child a:after {
   }
   #content-main .story .story-img {
     display: table-cell;
-  }
-  #content-main .story .story-teaser {
-    padding-left: 15px;
   }
   .sticky {
     display: table;

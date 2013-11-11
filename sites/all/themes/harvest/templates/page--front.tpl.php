@@ -12,30 +12,16 @@
                 <div class="row">
                   <div class="col-md-3 logo">
                     <a href="#" id="logo">
-                      <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/logo.png">
+                      <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>"/>
                     </a>
                   </div>
                   <div class="col-md-8">
-                    <ul>
-                      <li>
-                        <a href="#">About ISA</a>
-                      </li>
-                      <li>
-                        <a href="#">Bean Blog</a>
-                      </li>
-                      <li>
-                        <a href="#">Related Organizations</a>
-                      </li>
-                      <li>
-                        <a href="#">Communications</a>
-                      </li>
-                      <lI>
-                        <a href="#">Programs</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact</a>
-                      </li>
-                    </ul>
+                    <?php if (isset($main_menu)) : ?>
+                      <?php print theme('links', array('links' => $main_menu, 'attributes' => array('class' => 'links main-menu'))) ?>
+                    <?php endif; ?>
+                    <?php if (isset($secondary_menu)) : ?>
+                      <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('class' => 'links secondary-menu'))) ?>
+                    <?php endif; ?>
                   </div>
                   <div class="col-sm-1"></div>
                 </div>
@@ -62,6 +48,7 @@
               <div class="row sticky">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
+                  <?php print render($page['content_main_top']);?>
                   <div class="sticky-img">
                     <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/50-logo.png"/>
                   </div>
@@ -88,6 +75,7 @@
                 <div class="row">
                   <div class="col-sm-1"></div>
                   <div class="col-sm-7 content-left">
+                    <?php print render($page['content']);?>
                     <div class="story">
                       <div class="story-img">
                         <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/placeholder-1.jpg"/>
@@ -117,6 +105,7 @@
                     </div>
                   </div>
                   <div class="col-sm-3 sidebar">
+                    <?php print render($page['sidebar_first']);?>
                     <div class="isa-now">
                       <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/iowa-soybean-now.png"/>
                       <h3>October 31, 2013</h3>

@@ -6,9 +6,11 @@ screenshot = screenshot.png
 core = 7.x
 engine = phptemplate
 
-regions[content_top] = Top Content
-regions[content] = Main Content
+regions[content_top] = Pre-Header Content
 regions[jumbotron] = Jumbotron
+regions[content_main_top] = Main Top Content
+regions[content] = Main Content
+regions[sidebar_first] = Right Sidebar
 regions[footer] = Page Footer
 
 scripts[] = js/vendor/modernizr-2.6.2-respond-1.1.0.min.js

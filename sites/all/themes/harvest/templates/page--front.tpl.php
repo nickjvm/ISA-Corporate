@@ -11,7 +11,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-3 logo">
-                    <a href="#" id="logo">
+                    <a href="/" id="logo">
                       <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>"/>
                     </a>
                   </div>
@@ -44,34 +44,16 @@
             </div>
 
             <div class="container" id="content-main">
-              <!-- Example row of columns -->
-              <div class="row sticky">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                  <?php print render($page['content_main_top']);?>
-                  <div class="sticky-img">
-                    <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/50-logo.png"/>
+              <?php if($page['content_main_top'] || $messages): ?>
+                <div class="row sticky">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-10">
+                    <?php print $messages; ?>
+                    <?php print render($page['content_main_top']);?>
                   </div>
-                  <div class="sticky-story">
-                  <h1>Focused on the Future</h1>
-                  <p>There’s a quiet revolution going on. It has been gaining momentum for 50 years, as Iowa’s soybean growers have planted the seeds of change to make Iowa a leader in agriculture innovation and sustainability worldwide.</p>
-                  <p>
-                    The farmer leaders who founded the Iowa Soybean Association (ISA) in 1964 knew that partnering to produce results was the key to stronger rural communities and a stronger Iowa. Opportunities continue to expand as today’s ISA members find new solutions to produce higher yields, ensure healthier food production, provide alternative energy options and create new commercial technologies for valuable soy byproducts. </p>
-
-                    <p>They do all this by supporting the soybean checkoff, which enhances the value of their soybean...</p>
-                    <ul class="buttons">
-                      <li>
-                        <a class="btn btn-secondary">watch the video<i class="fa fa-youtube-play"></i></a>
-                      </li>
-                      <li>
-                        <a class="btn btn-primary">continue reading<i class="fa fa-chevron-circle-right"></i></a>
-                      </li>
-                    </ul>
-                  </div>
+                  <div class="col-sm-1"></div>
                 </div>
-                <div class="col-sm-1"></div>
-              </div>
-
+              <?php endif; # content_main_top || $messages ?>
                 <div class="row">
                   <div class="col-sm-1"></div>
                   <div class="col-sm-7 content-left">

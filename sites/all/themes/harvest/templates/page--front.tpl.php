@@ -76,33 +76,6 @@
                   <div class="col-sm-1"></div>
                   <div class="col-sm-7 content-left">
                     <?php print render($page['content']);?>
-                    <div class="story">
-                      <div class="story-img">
-                        <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/placeholder-1.jpg"/>
-                      </div>
-                      <div class="story-teaser">
-                        <h2>Iowa Soybean Farmers Hope Additional Moisture Will Boost Yields, Profits</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar cursus rutrum. Aenean placerat enim sit amet libero auctor ornare. Mauris id nibh et eros facilisis interdum vel ac magna. Vivamus porta arcu justo, eu egestas lacus volutpat ut. Pellentesque consectetur sed ipsum at ultrices. Maecenas a tincidunt nisi, molestie fermentum...</p>
-                      </div>
-                    </div>
-                    <div class="story">
-                      <div class="story-img">
-                        <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/placeholder-2.jpg"/>
-                      </div>
-                      <div class="story-teaser">
-                        <h2>Iowa Soybean Association Strengthens Relationships With Soybean Buyers</h2>
-                        <p>Proin quis tincidunt lorem, aliquam tincidunt odio. Nunc porta a enim eu consequat. Proin sed lacinia justo. Suspendisse in suscipit lorem. Aliquam egestas blandit sodales. Aenean at lectus sed nisl lobortis faucibus et ac felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas...</p>
-                      </div>
-                    </div>
-                    <div class="story">
-                      <div class="story-img">
-                        <img src="<?php print drupal_get_path('theme','harvest'); ?>/img/placeholder-3.jpg"/>
-                      </div>
-                      <div class="story-teaser">
-                        <h2>Iowa Food & Family Project Connects Record Fair Crowds With Food, Farming</h2>
-                        <p>Ut volutpat, urna vulputate faucibus tincidunt, nulla urna pellentesque turpis, eu vulputate magna dui non nulla. Suspendisse vel feugiat lacus. Fusce quis suscipit risus, quis porta enim. Praesent sed massa sed quam commodo mattis et non purus. Fusce ac turpis id mi vehicula faucibus...</p>
-                      </div>
-                    </div>
                   </div>
                   <div class="col-sm-3 sidebar">
                     <?php print render($page['sidebar_first']);?>

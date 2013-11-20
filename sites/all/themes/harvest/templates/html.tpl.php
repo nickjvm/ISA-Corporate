@@ -9,7 +9,7 @@
   <title><?php print $head_title; ?></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeI2rgNEVh7Wl1VYqRNauDnz0aPmzhPZU&sensor=false"></script>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   <?php print $styles; ?>
   <?php print $scripts; ?>
@@ -23,6 +23,9 @@
 	<?php print $page_top; ?>
 
 	<?php print $page; ?>
+
+  
+
 	<?php print $page_bottom; ?>
   
    <script>
@@ -33,3 +36,5 @@
    </script>
  </body>
  </html>
+
+

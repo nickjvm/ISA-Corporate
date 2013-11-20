@@ -11,14 +11,35 @@ regions[jumbotron] = Jumbotron
 regions[content_main_top] = Main Top Content
 regions[content] = Main Content
 regions[sidebar_first] = Right Sidebar
-regions[footer] = Page Footer
+regions[sidebar_second] = Left Sidebar
+regions[footer_col_1] = Footer First Column
+regions[footer_col_2] = Footer Second Column
+regions[footer_col_3] = Footer Third Column
+regions[footer_col_4] = Footer Fourth Column
+regions[secondary] = Secondary Footer
 
 scripts[] = js/vendor/modernizr-2.6.2-respond-1.1.0.min.js
 scripts[] = js/vendor/bootstrap.min.js
+scripts[] = js/jquery.magnific-popup.js
+scripts[] = js/jquery.ba-dotimeout.js
+scripts[] = js/jquery.tipsy.js
+scripts[] = js/chart.min.js
+scripts[] = js/jquery.flot.min.js
+scripts[] = js/jquery.jqplot.js
+scripts[] = js/jqplot.barRenderer.min.js
+scripts[] = js/jqplot.categoryAxisRenderer.min.js
+scripts[] = js/jqplot.pointLabels.min.js
+scripts[] = js/jqplot.canvasAxisLabelRenderer.min.js
+scripts[] = js/jqplot.canvasAxisLabelRenderer.min.js
+scripts[] = js/jqplot.canvasTextRenderer.min.js
+scripts[] = js/mediaelement-and-player.js
 scripts[] = js/main.js
 
 stylesheets[screen][] = css/bootstrap-theme.min.css
-stylesheets[screen][] = css/bootstrap.min.css
+stylesheets[screen][] = css/bootstrap.css
+stylesheets[screen][] = css/magnific-popup.css
+stylesheets[screen][] = css/jquery.jqplot.css
+stylesheets[screen][] = css/mediaelementplayer.css
 stylesheets[screen][] = css/main.css
 ;stylesheets[print][] = print.css
 

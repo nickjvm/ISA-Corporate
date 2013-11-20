@@ -1165,7 +1165,7 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
       if ($this->options['alter']['more_link'] && strlen($value) < $length) {
         $tokens = $this->get_render_tokens($alter);
         $more_link_text = $this->options['alter']['more_link_text'] ? $this->options['alter']['more_link_text'] : t('more');
-        $more_link_text = strtr(filter_xss_admin($more_link_text), $tokens);
+        $more_link_text = strtr($more_link_text, $tokens);
         $more_link_path = $this->options['alter']['more_link_path'];
         $more_link_path = strip_tags(decode_entities(strtr($more_link_path, $tokens)));
 
@@ -1176,7 +1176,7 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
           $more_link_path = drupal_substr($more_link_path, drupal_strlen($base_path));
         }
 
-        $more_link = l($more_link_text, $more_link_path, array('attributes' => array('class' => array('views-more-link'))));
+        $more_link = l($more_link_text, $more_link_path, array('attributes' => array('class' => array('btn btn-primary views-more-link'))));
 
         $suffix .= " " . $more_link;
       }

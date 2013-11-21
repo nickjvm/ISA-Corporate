@@ -40,12 +40,19 @@ $(document).ready(function() {
 			var location = $(this).data("audio-src");
 			if(location) {
 				e.preventDefault();
+				var currentsrc = $("#radio-player").attr("src");
 				$(this).after($("#player-icon").show());
+
 				$(".radio-file.on").removeClass("on");
 				$(this).addClass("on");
-				$(".view-header .title").text($(this).text());
-				$("#radio-player").attr("src",location);
-				player.play();
+				if(currentsrc == location) {
+					player.play();
+				} else {
+					
+					$(".view-header .title").text($(this).text());
+					$("#radio-player").attr("src",location);
+					player.play();
+				}
 			}
 		}
 	})

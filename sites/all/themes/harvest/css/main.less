@@ -337,7 +337,13 @@ nav {
 .mejs-audio {
 	margin-bottom:1em;
 }
-
+.page-node {
+	.content-left {
+		.buttons {
+			margin-top:2em;
+		}
+	}
+}
 #player-icon {
 	 display:none;
 	 padding-left: 6px;
@@ -741,10 +747,14 @@ nav {
 			}
 		}
 	}
-	.sidebar-first {
+	/*.sidebar-first {
 		.content-left {
 			border-right:1px solid @contrastGray;
 		}
+	}*/
+	#block-views-tweets-block {
+		position:absolute;
+		bottom:0;
 	}
 	#content-main {
 	
@@ -789,10 +799,23 @@ nav {
 			}
 		}
 	}
+	.btn {
+		white-space:normal;
+	}
 }
 @media (min-width:768px) {
 	#content-main {
-
+		.row {
+			display:table;
+			> div {
+				vertical-align: top;
+				display:table-cell;
+				float:none;
+				&.sidebar {
+					padding-bottom:200px;
+				}
+			}
+		}
 		.story {
 			.body-img {
 				display:table-cell;
@@ -812,6 +835,11 @@ nav {
 		.staff-overlay {
 			left: -5em;
 			right: -5em;
+		}
+	}
+	.sidebar {
+		ul {
+			padding-left:20px;
 		}
 	}
 }
@@ -1035,3 +1063,24 @@ box-shadow: 0px 1px 10px -4px #000;
 	height:250px !important;
 	margin:1em 1%!important;
 }
+
+.source {
+	color:@lightCopy;
+	font-size:.8em;
+	font-style:italic;
+	margin-left:4px;
+	display:inline-block;
+}
+
+.partners {
+	text-align:center;
+	.logo {
+		display:inline-block;
+		text-align:center;
+		margin:2em 1.7em 2em 0em;
+		img {
+			margin-bottom:1em;
+		}
+	}
+}
+

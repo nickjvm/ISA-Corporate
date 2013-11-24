@@ -465,7 +465,6 @@ var MenuDropdowns = new function() {
 
 	self.init = function() {
 		$("ul.menu li").hover(function(){
-			console.log(this);
 		    $(this).addClass("hover");
 		    $('ul:first',this).css('visibility', 'visible');
 		

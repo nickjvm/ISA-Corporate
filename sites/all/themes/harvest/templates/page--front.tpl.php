@@ -34,6 +34,7 @@
                 endif; 
               ?>
             </nav>
+            <div class="shadow"></div>
             <div class="jumbotron">
                   <div id="slider">
                     <div class="jumbotron-nav jumbotron-prev"><span></span></div>

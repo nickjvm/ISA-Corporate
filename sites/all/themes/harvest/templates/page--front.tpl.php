@@ -7,7 +7,7 @@
                 </div>
               </div>
             </div>
-            <nav role="navigation">
+            <nav role="navigation" id="full-nav">
               <div class="container">
                 <div class="row">
                   <div class="col-md-3 logo">
@@ -26,7 +26,14 @@
                 </div>
               </div>
             </nav>
-
+            <nav rol="mobile-navigation" id="mobile-nav">
+              <h2><a href="/">ISA Home</a></h2>
+              <?php 
+                if (isset($main_menu)):
+                  print render($main_menu_expanded);               
+                endif; 
+              ?>
+            </nav>
             <div class="jumbotron">
                   <div id="slider">
                     <div class="jumbotron-nav jumbotron-prev"><span></span></div>

@@ -1,15 +1,43 @@
 var $ = jQuery;
+
 $(document).ready(function() {
 
 	DynamicLead.init();
 	MenuDropdowns.init();
 	StaffListing.init();
+    Videos.init();
+    Radios.init();
 
+    //Mobile Navigation
+    $("#mobile-nav").on("click",function() {
+        $(this).toggleClass("visible");
+    })
+    $("#mobile-nav li").on("click",function(e) {
+        e.stopPropagation();
+        $(this).children("ul").slideToggle();
+        $(this).toggleClass("open");
+    });
+    $("#mobile-nav li a").on("click",function(e){
+        e.stopPropagation();
+    });
+    $(".shadow").on("click",function() {
+        $("#mobile-nav").toggleClass("visible");
+    });
+
+    //End Mobile Navigation
+
+    
 	$(".action-link").magnificPopup({
 		type:'iframe',
 		removalDelay:160,
 		preloader:false
 	});
+
+    $("a[rel=Youtube]").magnificPopup({
+        type:'iframe',
+        removalDelay:160,
+        preloader:false
+    });
 
 	$('.login').magnificPopup({
 		type: 'inline',
@@ -18,7 +46,6 @@ $(document).ready(function() {
 
 		callbacks: {
 			beforeOpen: function() {
-				console.log(this);
 				if($(window).width() < 600) {
 					this.st.focus = false;
 				} else {
@@ -28,34 +55,7 @@ $(document).ready(function() {
 		}
 	});
 
-	window.player = new MediaElementPlayer("#radio-player");
-
-	$(".view-id-radio").on("click",".radio-file",function(e) {
-		if($(this).hasClass("on")) {
-			$("#player-icon").hide();
-			e.preventDefault();
-			player.pause();
-			$(this).removeClass("on");
-		} else {
-			var location = $(this).data("audio-src");
-			if(location) {
-				e.preventDefault();
-				var currentsrc = $("#radio-player").attr("src");
-				$(this).after($("#player-icon").show());
-
-				$(".radio-file.on").removeClass("on");
-				$(this).addClass("on");
-				if(currentsrc == location) {
-					player.play();
-				} else {
-					
-					$(".view-header .title").text($(this).text());
-					$("#radio-player").attr("src",location);
-					player.play();
-				}
-			}
-		}
-	})
+	
 
 	var data = {
 		labels : ["Soybeans","Corn","Wheat","Other"],
@@ -464,7 +464,7 @@ var MenuDropdowns = new function() {
 	var self = this;
 
 	self.init = function() {
-		$("ul.menu li").hover(function(){
+		$("#full-nav ul.menu li").hover(function(){
 		    $(this).addClass("hover");
 		    $('ul:first',this).css('visibility', 'visible');
 		
@@ -476,7 +476,105 @@ var MenuDropdowns = new function() {
 		});
 	}
 }
+var Radios = new function() {
+    var self= this;
 
+    self.init = function() {
+
+        //self.attachHandlers();
+        if($("#radio-player").length) {
+            self.player = new MediaElementPlayer("#radio-player");
+            self.attachHandlers();
+        }
+    };
+
+
+    self.attachHandlers = function() {
+
+        $(".view-id-radio").on("click",".radio-file",function(e) {
+            if($(this).hasClass("on")) {
+                $("#player-icon").hide();
+                e.preventDefault();
+                self.player.pause();
+                $(this).removeClass("on");
+            } else {
+                var location = $(this).data("audio-src");
+                if(location) {
+                    e.preventDefault();
+                    var currentsrc = $("#radio-player").attr("src");
+                    $(this).after($("#player-icon").show());
+
+                    $(".radio-file.on").removeClass("on");
+                    $(this).addClass("on");
+                    if(currentsrc == location) {
+                        self.player.play();
+                    } else {
+                        
+                        $(".view-header .title").text($(this).text());
+                        $("#radio-player").attr("src",location);
+                        self.player.play();
+                    }
+                }
+            }
+        })
+    };
+}
+var Videos = new function() {
+    var self = this;
+    self.init = function() {
+        if($(".page-programs-production-research-videos").length) {
+            self.attachHandlers();
+        }
+        return false;
+    }
+    self.attachHandlers = function() {
+        $('a[rel=Other]').on("click",function(e) {
+            e.preventDefault();
+
+            if(!$(this).data("url")) {
+                $(this).data("url",$(this).attr("href"));
+            }
+            self.URL = $(this).attr("href");
+            self.Title = $(this).text();
+            self.Magnific();
+        });
+    };
+    self.Open = function() {
+        videojs("video-player").ready(function(){
+            self.player = this;
+            var url = $(self).data("url");
+            self.player.src({
+                type:"video/mp4",
+                src:self.URL
+            });
+        });
+    },
+    self.Magnific = function() {
+        $.magnificPopup.open({
+            items:{
+                src:self.videoSrc(),
+                type:"inline"
+            },
+            closeBtnInside:true,
+            callbacks: {
+                open:Videos.Open,
+                close: function() {
+                    self.player.dispose();
+                }
+            }
+        });
+    }
+    self.videoSrc = function() {
+        var markup = "<div class='video white-popup'>\
+            <h2>"+self.Title+"</h2>\
+            <video id='video-player' class='video-js vjs-default-skin'\
+            src='"+self.URL + "'\
+            controls preload='none' width='640' height='536'\
+            poster='/sites/all/themes/harvest/img/player-splash.jpg'></video>";
+
+        return markup;
+    }
+}
 var DynamicLead = new function(){
 	var self = this;
 
@@ -611,7 +709,6 @@ var StaffListing = new function() {
 		})
 	}
 	self.ShowCurtain = function() {
-		console.log("here");
 		$curtain = $("#staff-curtain").fadeIn("fast");
 		$(".close-overlay").on("click",function(e) {
 			e.stopPropagation();

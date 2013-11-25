@@ -7,7 +7,7 @@
                 </div>
               </div>
             </div>
-            <nav role="navigation">
+            <nav role="navigation" id="full-nav">
               <div class="container">
                 <div class="row">
                   <div class="col-md-3 logo">
@@ -17,7 +17,7 @@
                   </div>
                   <div class="col-md-8">
                     <?php if (isset($main_menu)) : ?>
-<?php print render($main_menu_expanded); ?>                     <?php endif; ?>
+<?php print render($main_menu_expanded); ?>                    <?php endif; ?>
                     <?php //if (isset($secondary_menu)) : ?>
                       <?php //print theme('links', array('links' => $secondary_menu, 'attributes' => array('class' => 'links secondary-menu'))) ?>
                     <?php //endif; ?>
@@ -26,6 +26,15 @@
                 </div>
               </div>
             </nav>
+            <nav rol="mobile-navigation" id="mobile-nav">
+              <h2><a href="/">ISA Home</a></h2>
+              <?php 
+                if (isset($main_menu)):
+                  print render($main_menu_expanded);               
+                endif; 
+              ?>
+            </nav>
+            <div class="shadow"></div>
 
             <div class="jumbotron">
               <div id="slider">

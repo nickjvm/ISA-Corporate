@@ -547,7 +547,7 @@ a {
 			margin-top:1em;
 			li {
 				display:inline-block;
-				margin-right:16px;
+				margin-right:2px;
 				a {
 					border:0;
 					color:@coolBlack;
@@ -757,15 +757,6 @@ a {
 			}
 		}
 	}
-	/*.sidebar-first {
-		.content-left {
-			border-right:1px solid @contrastGray;
-		}
-	}*/
-	#block-views-tweets-block {
-		//position:absolute;
-		//bottom:0;
-	}
 	#content-main {
 	
 		.sidebar {
@@ -803,16 +794,18 @@ a {
 }
 @media (max-width:768px) {
 	#mobile-nav {
+		cursor:pointer;
+		box-shadow: inset -3px 4px 9px -4px #000;
 		h2 {
+			box-shadow: inset -3px 0px 9px -4px #000;
 			padding:10px;
 			background:darken(@black,10%);
 			color:@contrastGray;
-			cursor:pointer;
 		}
 		
 		background:@black;
 		z-index: 100;
-		position: fixed;
+		position: absolute;
 		left: 0;
 		width:300px;
 		max-width:95%;
@@ -837,6 +830,7 @@ a {
 			bottom:0;
 			margin-left:0;
 			height:auto;
+			position:fixed;
 			+.shadow {
 				display:block;
 			}
@@ -853,15 +847,18 @@ a {
 			overflow:auto;
 			margin:0;
 			padding:0;
-			padding-left:10px;
+			padding-left:0px;
 			list-style-type:none;
 			width:100%;
 			li {
 				cursor:pointer;
 				&.expanded {
 					position:relative;
+					&:hover {
+						//background:@smoke;
+					}
 					&:after {
-						top: 21px;
+						top: 18px;
 						border: 5px solid transparent;
 						border-left-color: @contrastGray;
 						content: "";
@@ -923,8 +920,8 @@ a {
 	}
 }
 @media (min-width:768px) {
-	#content-main {
-		
+	.content-left {
+		border-right:1px solid @contrastGray;
 		.story {
 			.body-img {
 				display:table-cell;
@@ -953,17 +950,7 @@ a {
 	}
 }
 @media (min-width:992px)  {
-	#content-main {
-		.row {
-			display:table;
-			> div {
-				vertical-align: top;
-				display:table-cell;
-				float:none;
-				
-			}
-		}
-	}
+
 	#full-nav {
 		ul {
 			text-align:left;
@@ -985,6 +972,29 @@ a {
 	}
 }
 @media (min-width:1200px) {
+
+	#block-views-tweets-block {
+		position:absolute;
+		bottom:0;
+	}
+	#content-main {
+		.content-left {
+			border:0;
+		}
+		.sidebar {
+			margin-left:0;
+			padding-bottom:200px;
+		}
+		.row {
+			display:table;
+			> div {
+				vertical-align: top;
+				display:table-cell;
+				float:none;
+				
+			}
+		}
+	}
 	#full-nav ul {
 		li {
 			font-size:16px;
@@ -1192,9 +1202,12 @@ box-shadow: 0px 1px 10px -4px #000;
 .chart {
 	display: inline-block;
 	vertical-align: top;
-	width:338px !important;
+	width:308px !important;
 	height:250px !important;
-	margin:1em 1%!important;
+	margin:1em 1% 0 1%!important;
+}
+#charts img {
+	margin-top:1em;
 }
 
 .source {

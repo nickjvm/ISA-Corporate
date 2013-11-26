@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     //End Mobile Navigation
 
-    
+
 	$(".action-link").magnificPopup({
 		type:'iframe',
 		removalDelay:160,
@@ -457,8 +457,62 @@ var line3 = [["1986",1.9],["1996",2.4],["2006",3.2],["2007",2.7],["2008",2.9],["
 			$(e).hide();
 		});
 		
+        //External URL notification
+        $("a").on("click",function(e) {
+            //proceed to check url if it's not already attached to an internal lightbox
+            if(!$(this).data("magnificPopup")) {
+                e.preventDefault();
+                var url = $(this).attr("href");
 
+                if(isExternal(url)) {
+                    //get the domain of the url
+                    var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
+                    $.magnificPopup.open({
+                      items: {
+                          src: '<div class="white-popup-block">\
+                                <h2>You are now leaving The Iowa Soybean Association</h2>\
+                                <p>If you are not redirected in <span class="countdown">5</span> seconds, click continue below.</p>\
+                                <ul class="buttons"><li>\
+                                <a href="'+url+'" class="btn btn-primary">Continue to '+match[2]+'<i class="fa fa-chevron-circle-right"></i></a>\
+                                </li></ul></div>',
+                          type: 'inline'
+                      },
+                      callbacks: {
+                          beforeOpen:function() {
+                            //Set the timer for 5 seconds
+                            $.doTimeout( 'redirecter', 5000, function(){
+                                document.location = url;
+                            });
+                            var i = 4;
+                            $.doTimeout('countdown',1000,function() {
+                                $(".countdown").text(i--);
+                                return true;
+                                if(i==0) {
+                                    return false;
+                                }
+                            })
+                          },
+                          close:function() {
+                            $.doTimeout('redirecter');
+                            $.doTimeout('countdown');
+                          }
+                      }
+                    });
+                } else {
+                    //internal, allow to proceed without interruption.
+                    document.location = url
+                }
+            }
+        });
 })
+
+function isExternal(url) {
+    var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
+
+    if (typeof match[1] === "string" && match[1].length > 0 && match[1].toLowerCase() !== location.protocol && match[1].toLowerCase()!= 'mailto:') return true;
+    if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":("+{"http:":80,"https:":443}[location.protocol]+")?$"), "") !== location.host) return true;
+    return false;
+}
 
 var MenuDropdowns = new function() {
 	var self = this;

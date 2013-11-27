@@ -460,7 +460,7 @@ var line3 = [["1986",1.9],["1996",2.4],["2006",3.2],["2007",2.7],["2008",2.9],["
         //External URL notification
         $("a").on("click",function(e) {
             //proceed to check url if it's not already attached to an internal lightbox
-            if(!$(this).data("magnificPopup")) {
+            if(!$(this).data("magnificPopup") && !$(this).closest("#toolbar").length && !$(this).closest(".contextual-links-wrapper").length) {
                 e.preventDefault();
                 var url = $(this).attr("href");
 

@@ -1,0 +1,10 @@
+;$Id$
+
+name = Weather
+description = A simple weather widget developed for the Iowa Soybean Association using IPGeolocation, Google Maps, and Forecast.io APIs.
+package = Iowa Soybean Association
+core = 7.x
+files[] = weather.module
+
+;dependencies[] = autoload
+;php = 5.2

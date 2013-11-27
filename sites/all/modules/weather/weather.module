@@ -1,0 +1,61 @@
+<?php
+
+function weather_block_info() {
+  $blocks = array();
+
+  $blocks['weather'] = array(
+    'info' => t('A simple weather widget'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+function weather_block_view($block_name = '') {
+  if ($block_name == 'weather') {
+
+  	$block['subject'] = t('Local Forecast');
+    $block['content'] = array(
+
+      '#markup' => weather_content(),
+      '#attached' => array(
+          'js' => array(
+            drupal_get_path('module', 'weather') . '/js/geolocator.min.js',
+            drupal_get_path('module', 'weather') . '/js/jquery.cookie.js',
+            drupal_get_path('module', 'weather') . '/js/weather.js',
+        ),
+          'css' => array(
+            drupal_get_path('module', 'weather') . '/css/weather.css',
+        ),
+      ),
+    );
+
+    return $block;
+  }
+}
+
+function weather_content() {
+	$html = "
+		<div id='weather-widget' class='weather-loading'>
+			<div class='current-conditions'>
+				<div class='icon-wrapper ib'>
+					<i class='icon'></i>
+				</div>
+				<div class='current-temps ib'>
+					<span class='hi'>32&deg;</span>
+					<span class='lo'>/22</span>
+				</div>
+				<div class='details ib'>
+					<span class='city'>Ankeny</span>
+					<span class='summary'>Partly Cloudy</span>
+				</div>
+			</div>
+			<ul id='forecast'>
+				<li class='one-day'>WED 49/30</li>
+				<li class='two-day'>THU 18/9</li>
+				<li class='three-day'>FRI 22/9</li>
+			</ul>
+			<div class='error-msg'>Unable to determine your location</div>
+		</div>";
+	return $html;
+}

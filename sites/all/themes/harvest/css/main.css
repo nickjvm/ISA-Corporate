@@ -1033,6 +1033,20 @@ a {
   #block-views-tweets-block {
     position: absolute;
     bottom: 0;
+    left: 15px;
+    right: 15px;
+  }
+  #content-main {
+    /*.row {
+  			display:table;
+  			> div {
+  				vertical-align: top;
+  				display:table-cell;
+  				float:none;
+  				
+  			}
+  		}*/
+  
   }
   #content-main .content-left {
     border: 0;
@@ -1040,14 +1054,6 @@ a {
   #content-main .sidebar {
     margin-left: 0;
     padding-bottom: 200px;
-  }
-  #content-main .row {
-    display: table;
-  }
-  #content-main .row > div {
-    vertical-align: top;
-    display: table-cell;
-    float: none;
   }
   #full-nav ul li {
     font-size: 16px;

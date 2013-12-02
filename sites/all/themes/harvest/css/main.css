@@ -987,7 +987,7 @@ a {
   }
 }
 @media (min-width: 768px) {
-  .content-left {
+  .sidebar-first .content-left {
     border-right: 1px solid #c7cbcb;
   }
   .content-left .story .body-img {
@@ -1048,11 +1048,7 @@ a {
   		}*/
   
   }
-  #content-main .content-left {
-    border: 0;
-  }
   #content-main .sidebar {
-    margin-left: 0;
     padding-bottom: 200px;
   }
   #full-nav ul li {
@@ -1272,4 +1268,166 @@ a {
 }
 .partners .logo img {
   margin-bottom: 1em;
+}
+.program-slideshow {
+  background: #000;
+  height: 305px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1em;
+}
+.program-slideshow .slide {
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #FFF;
+}
+.program-slideshow .slide img {
+  display: none;
+}
+.program-slideshow .slide.on {
+  z-index: 1;
+  opacity: 1;
+}
+.program-slideshow .program-prev,
+.program-slideshow .program-next {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 305px;
+  width: 25%;
+  opacity: .5;
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0.4)), color-stop(100%, rgba(0, 0, 0, 0)));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#82000000', endColorstr='#00000000', GradientType=1);
+  /* IE6-9 */
+
+  -webkit-transition: opacity .5s;
+  cursor: pointer;
+}
+.program-slideshow .program-prev:hover,
+.program-slideshow .program-next:hover {
+  opacity: .9;
+}
+.program-slideshow .program-prev span,
+.program-slideshow .program-next span {
+  min-width: 90px;
+  background: url(../img/slider-sprite.png) right -51px no-repeat;
+  position: absolute;
+  top: 50%;
+  height: 100px;
+  left: 0;
+  right: 0;
+  content: "";
+  margin-top: -50px;
+}
+.program-slideshow .program-next {
+  right: 0;
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.4)));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#82000000', endColorstr='#00000000', GradientType=1);
+  /* IE6-9 */
+
+}
+.program-slideshow .program-next span {
+  top: 50%;
+  background-position: right -206px;
+}
+.webform-client-form label {
+  display: inline-block;
+  width: 245px;
+  font-weight: normal;
+  vertical-align: top;
+  margin-right: 1em;
+}
+.webform-client-form input[type=text],
+.webform-client-form input[type=email] {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.webform-client-form .select-or-other .form-item {
+  margin-bottom: 0;
+}
+.webform-client-form .form-type-checkboxes + .form-type-textfield,
+.webform-client-form .form-type-radios + .form-type-textfield {
+  margin-top: .5em;
+}
+.webform-client-form .form-type-checkboxes + .form-type-textfield input,
+.webform-client-form .form-type-radios + .form-type-textfield input {
+  margin-left: 2.5em;
+}
+.webform-client-form .form-radios,
+.webform-client-form .form-checkboxes {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1em;
+}
+.webform-client-form .form-radios .form-type-radio,
+.webform-client-form .form-checkboxes .form-type-radio,
+.webform-client-form .form-radios .form-type-checkbox,
+.webform-client-form .form-checkboxes .form-type-checkbox {
+  display: block;
+  margin-top: 0;
+  width: auto;
+}
+.webform-client-form .form-type-textfield .element-invisible {
+  position: relative !important;
+  visibility: hidden;
+}
+.webform-client-form input[type=radio],
+.webform-client-form input[type=checkbox] {
+  margin: 0 5px 0 0;
+}
+.webform-client-form .form-actions {
+  text-align: center;
+}
+.webform-client-form .form-actions .btn {
+  font-size: 1.2em;
+}
+@media (max-width: 992px) {
+  .webform-client-form label {
+    display: block;
+    width: 100%;
+  }
 }

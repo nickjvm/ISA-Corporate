@@ -920,8 +920,12 @@ a {
 	}
 }
 @media (min-width:768px) {
+	.sidebar-first {
+		.content-left {
+			border-right:1px solid @contrastGray;
+		}
+	}
 	.content-left {
-		border-right:1px solid @contrastGray;
 		.story {
 			.body-img {
 				display:table-cell;
@@ -981,10 +985,10 @@ a {
 	}
 	#content-main {
 		.content-left {
-			border:0;
+			//border:0;
 		}
 		.sidebar {
-			margin-left:0;
+			//margin-left:0;
 			padding-bottom:200px;
 		}
 		/*.row {
@@ -1063,6 +1067,8 @@ a {
 		-webkit-font-smoothing: antialiased;
 	}
 }
+
+
 #full-nav {
 ul.menu > li {
 	margin:0;
@@ -1232,3 +1238,144 @@ box-shadow: 0px 1px 10px -4px #000;
 	}
 }
 
+
+.program-slideshow {
+	background: #000;
+	height: 305px;
+	overflow: hidden;
+	position: relative;
+	margin-top:1em;
+	.slide {
+		z-index:0;
+		opacity:0;
+		-webkit-transition:opacity .5s;
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+		background-position:center center;
+		background-size:contain;
+		background-repeat:no-repeat;
+		background-color:#FFF;
+		img {
+			display:none;
+		}
+		&.on {
+			z-index:1;
+			opacity:1;
+		}
+
+	}
+	.program-prev,
+	.program-next {
+		position:absolute;
+		z-index:2;
+		top:0;
+		height:305px;
+		width:25%;
+		opacity:.5;
+		background: -moz-linear-gradient(left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.4)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+		background: linear-gradient(to right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+		-webkit-transition:opacity .5s;
+		cursor:pointer;
+		&:hover {
+			opacity:.9;
+		}
+		span {
+			min-width:90px;
+			background: url(../img/slider-sprite.png) right -51px no-repeat;
+			position: absolute;
+			top: 50%;
+			height: 100px;
+			left: 0;
+			right:0;
+			content: "";
+			margin-top: -50px;
+		}
+	}
+	.program-next {
+		right:0;
+		background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+		background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+		span {
+			top:50%;
+			background-position: right -206px;
+		}
+	}
+}
+
+.webform-client-form {
+	label {
+		display:inline-block;
+		width:245px;
+		font-weight:normal;
+		vertical-align:top;
+		margin-right:1em;
+	}
+	input[type=text],
+	input[type=email] {
+		max-width:100%;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+	.select-or-other {
+		.form-item {
+			margin-bottom:0;
+		}
+	}
+	.form-type-checkboxes,.form-type-radios {
+		+ .form-type-textfield {
+			margin-top:.5em;
+			input {
+				margin-left:2.5em;
+			}
+		}
+	}
+	.form-radios,.form-checkboxes {
+		display:inline-block;
+		vertical-align:top;
+		margin-left:1em;
+		.form-type-radio, .form-type-checkbox {
+			display:block;
+			margin-top:0;
+			width:auto;
+		}
+	}
+	.form-type-textfield {
+		.element-invisible {
+			position:relative !important;
+			visibility:hidden;
+		}
+	}
+	input[type=radio],
+	input[type=checkbox] {
+		margin:0 5px 0 0;
+	}
+	.form-actions {
+		text-align:center;
+		.btn {
+			font-size:1.2em;
+		}
+	}
+}
+
+@media (max-width:992px) {
+	.webform-client-form {
+		label {
+			display:block;
+			width:100%;
+		}
+	}
+}

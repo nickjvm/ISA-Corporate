@@ -3,6 +3,7 @@ var $ = jQuery;
 $(document).ready(function() {
 
 	DynamicLead.init();
+    ProgramSlideshow.init();
 	MenuDropdowns.init();
 	StaffListing.init();
     Videos.init();
@@ -812,5 +813,100 @@ var StaffListing = new function() {
 
 	};
 
+
+}
+
+var ProgramSlideshow = new function(){
+    var self = this;
+
+    self.currentItem = 0;
+    self.oldItem = -1;
+    self.itemsArray = ".program-slideshow .slide";
+    self.lookupArray = [];
+    self.itemsArrayLen = null;
+    self.currentItemArray = [];
+    self.oldItemArray = [];
+
+    self.init = function() {
+        var self = this;
+        self.itemsArray = $(self.itemsArray);
+        self.itemsArrayLen = self.itemsArray.length;
+
+        if(self.itemsArray.length == 1) {
+            $(".program-slideshow .view-header").hide();
+        }
+        self.itemsArray.each(function(i, e) {
+            self.lookupArray.push({
+                "leadItem":$(e),
+                "img":$(e).find("img").attr("src"),
+                "index":i
+            });
+
+        self.itemsArray.eq(self.currentItem).addClass('on').css({
+            backgroundImage:"url("+self.lookupArray[self.currentItem].img+")"
+        });
+
+            //lookupArray[i].heading2.html(lookupArray[i].heading2a.text());
+
+        });
+        //clickItems( currentItem );
+        if(self.itemsArrayLen > 1) {
+            self.StartTimer();
+            self.AttachHandlers();
+        };
+        
+    };
+
+    self.StartTimer = function() {
+        $.doTimeout( 'autoStart', 10000, function(){
+            self.ChangeSlide( null );
+            return true;
+        } );
+    };
+
+    self.AttachHandlers = function() {
+        $(".program-slideshow .program-prev").on("click",function() {
+
+            self.ChangeSlide(self.currentItem-1);
+            self.ResetTimeout();
+        });
+        $(".program-slideshow .program-next").on("click",function() {
+            self.ChangeSlide(self.currentItem+1);
+            self.ResetTimeout();
+        });
+    };
+
+    self.ChangeSlide = function( slideNumber ){
+
+        var oldItem = self.currentItem;
+
+        if (slideNumber==null) {
+            self.currentItem++;
+        } else {
+            self.currentItem = slideNumber;
+        }
+
+        if ( self.currentItem >= self.itemsArrayLen ) self.currentItem = 0;
+        if ( self.currentItem < 0 ) self.currentItem = self.itemsArrayLen-1;
+
+        self.currentItemArray = self.lookupArray[ self.currentItem ];
+        self.oldItemArray = self.lookupArray[ oldItem ];
+        self.lookupArray[oldItem].leadItem.removeClass("on");
+        self.lookupArray[self.currentItem].leadItem.addClass("on").css({
+            backgroundImage:"url("+self.lookupArray[self.currentItem].img+")"
+        });
+    };
+
+    self.ResetTimeout = function() {
+        $.doTimeout( 'autoStart' );
+        $.doTimeout( 'reAutoStart' );
+        $.doTimeout( 'reAutoStart', 10000, function(){
+            $.doTimeout( 'autoStart', 10000, function(){
+                self.ChangeSlide( null );
+                return true;
+            } );
+        } );
+        
+    }
 
 }

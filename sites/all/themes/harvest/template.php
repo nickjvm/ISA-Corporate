@@ -19,6 +19,12 @@ function harvest_form_alter(&$form, &$form_state, $form_id) {
   if($form_id == "user_login_block") {
       $form['actions']['submit']['#attributes']['class'][]= "btn btn-primary";
   }
+
+
+  if (!empty($form['actions']) && $form['actions']['submit']) {
+    $form['actions']['submit']['#attributes'] = array('class' => array('btn', 'btn-primary'));
+  }
+
 }
 function harvest_preprocess_page(&$variables) {
     $variables['isa_now'] = "<img class='isa-now-logo' src='/".drupal_get_path('theme', 'harvest')."/img/iowa-soybean-now.png' alt='Iowa Soybean Now'/>";

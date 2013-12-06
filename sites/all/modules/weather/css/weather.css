@@ -419,6 +419,7 @@
   width: 45px;
   margin: 0 0;
   vertical-align: bottom;
+  text-align: center;
 }
 #weather-widget .icon-wrapper i {
   font-size: 32px;

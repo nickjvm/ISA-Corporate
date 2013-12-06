@@ -457,11 +457,14 @@ var line3 = [["1986",1.9],["1996",2.4],["2006",3.2],["2007",2.7],["2008",2.9],["
 			$(e).after(imgElem);//
 			$(e).hide();
 		});
-		
+
         //External URL notification
         $("a").on("click",function(e) {
             //proceed to check url if it's not already attached to an internal lightbox
-            if(!$(this).data("magnificPopup") && !$(this).closest("#toolbar").length && !$(this).closest(".contextual-links-wrapper").length) {
+            if(!$(this).data("magnificPopup") && 
+                !$(this).closest("#toolbar").length && 
+                !$(this).closest(".contextual-links-wrapper").length && 
+                !$(this).closest(".tabs").length) {
                 e.preventDefault();
                 var url = $(this).attr("href");
 
@@ -507,9 +510,18 @@ var line3 = [["1986",1.9],["1996",2.4],["2006",3.2],["2007",2.7],["2008",2.9],["
         });
 })
 
+var safeList = [
+    "ussec",
+    "iasoybeans",
+    "iowafoodandfamily",
+    "iowabiodiesel",
+    "thesoyfoodscouncil",
+    "planthealth",
+    "ag-urbanleadership"
+]
 function isExternal(url) {
     var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
-
+    if (typeof match[2] === "string" && match[2].length > 0 && $.inArray(match[2].replace("www.","").split(".")[0],safeList) != -1) return false;
     if (typeof match[1] === "string" && match[1].length > 0 && match[1].toLowerCase() !== location.protocol && match[1].toLowerCase()!= 'mailto:') return true;
     if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":("+{"http:":80,"https:":443}[location.protocol]+")?$"), "") !== location.host) return true;
     return false;

@@ -14,6 +14,8 @@
 @harvestAccent:#FFD472;
 @blue:#0D4D8C;
 @blueAccent:#123E66;
+@muted:#DBD8D2;
+@mutedAccent:darken(@muted,25%);
 
 @import "tipsy";
 
@@ -1083,6 +1085,12 @@ a {
 		background:@harvestAccent;
 		border:1px solid @harvest;
 		color:@harvest;
+	}
+	&.btn-muted {
+		background-image:none;
+		background:@muted;
+		border:1px solid @mutedAccent;
+		color:@mutedAccent;
 	}
 }
 .views-more-link {

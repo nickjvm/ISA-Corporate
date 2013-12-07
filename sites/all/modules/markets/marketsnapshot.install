@@ -1,0 +1,25 @@
+<?php
+
+function marketsnapshot_install() {
+	variable_set('marketsnapshot_defaults','ZS*1,ZS*2,ZS*3,ZM*1,ZL*1,ZC*1,ZC*2,ZC*3,ZW*1,ZW*2,ZW*3,KE*1,KE*2,KE*3,LE*1,LE*2,GF*1,GF*2,HE*1,HE*2');
+}
+
+function marketsnapshot_uninstall() {
+	variable_del('marketsnapshot_defaults');
+}
+
+function marketsnapshot_schema() {
+  $schema['marketsnapshot'] = array(
+        
+        'description' => 'The base table for nodes.',
+        'fields' => array(
+          'markets' => array(
+            'description' => 'The primary identifier for a node.',
+            'type' => 'text'
+          )
+          )
+      );
+      return $schema;
+
+  
+}

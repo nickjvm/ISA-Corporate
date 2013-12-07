@@ -1,0 +1,91 @@
+<?php
+function marketsnapshot_block_info() {
+  $blocks = array();
+
+  $blocks['marketsnapshot'] = array(
+    'info' => t('A simple Markets widget from BarChart'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+function marketsnapshot_block_view($block_name = '') {
+  if ($block_name == 'marketsnapshot') {
+
+  	$block['subject'] = t('Market Snapshot');
+    $block['content'] = array(
+
+      '#markup' => marketsnapshot_content(),
+      '#attached' => array('css' => array(
+            	drupal_get_path('module', 'marketsnapshot') . '/css/marketsnapshot.css'
+        	))
+    );
+
+    return $block;
+  }
+}
+
+function marketsnapshot_permission() {
+    return array(
+        'access market snapshot page' => array(
+          'title' => t('Access simple page'),
+          'description' => t('Allow users to access simple page'),
+        ),
+        'administer market snapshots' => array(
+          'title' => t('Administer Market Snapshots'),
+          'description' => t('Allow users to access page with arguments'),
+        ),
+      );
+}
+function marketsnapshot_content() {
+	$html = "
+		<script type='text/javascript' src='http://iasoybeans.websol.barchart.com/?module=marketSnapshot&js=1'>
+		</script>
+		<ul class='buttons'>
+		<li><a class='btn btn-muted' href='/markets'>more markets <i class='fa fa-chevron-circle-right'></i></a></li></ul>";
+	return $html;
+}
+
+function get_marketsnapshot_page_contents() {
+	$vars = variable_get("marketsnapshot_defaults",
+		'ZS*1,ZS*2,ZS*3,ZM*1,ZL*1,ZC*1,ZC*2,ZC*3,ZW*1,ZW*2,ZW*3,KE*1,KE*2,KE*3,LE*1,LE*2,GF*1,GF*2,HE*1,HE*2'
+		);
+	$html = "
+		<script type='text/javascript' src='http://iasoybeans.websol.barchart.com/?module=marketSnapshot&symbols=".$vars."&js=1'>
+		</script>";
+	return $html;
+}
+
+function marketsnapshot_menu() {
+
+	$items['admin/config/services/marketsnapshot'] = array(
+	  	'title'=> t('Market Snapshot'),
+  		'page callback' => 'drupal_get_form',
+  		'page arguments' => array('marketsnapshot_admin'),
+  		'access arguments' => array('administer market snapshots'),
+  		'weight'=>50,
+  		'type' => MENU_NORMAL_ITEM
+	 );
+	
+	$items['marketsnapshot'] = array(
+		'title' => 'Markets',
+		'page callback' => 'get_marketsnapshot_page_contents',
+		'access arguments' => array('access market snapshot page'),
+		'type' => MENU_NORMAL_ITEM
+	);
+	return $items;
+}
+
+function marketsnapshot_admin() {
+	static $defaults = 'ZS*1,ZS*2,ZS*3,ZM*1,ZL*1,ZC*1,ZC*2,ZC*3,ZW*1,ZW*2,ZW*3,KE*1,KE*2,KE*3,LE*1,LE*2,GF*1,GF*2,HE*1,HE*2';
+	$form['marketsnapshot_defaults'] = array(
+		'#type' => 'textarea',
+	    '#title' => t('Viewable Markets by Symbol'),
+	    '#default_value' => variable_get('marketsnapshot_defaults', $defaults),
+	    '#required' => TRUE,
+	    '#description' => t('The markets you wish to be visible on the Market Snapshot page. Note: The block\'s markets on the homepage are not customizable.'
+	 	 )
+	    );
+  return system_settings_form($form);	
+}

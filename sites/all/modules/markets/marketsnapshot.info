@@ -1,0 +1,10 @@
+;$Id$
+
+name = Market Snapshot
+description = A simple Market Snapshot module using BarChart provided data
+package = Iowa Soybean Association
+core = 7.x
+files[] = marketsnapshot.module
+
+;dependencies[] = autoload
+;php = 5.2

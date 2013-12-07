@@ -1115,6 +1115,12 @@ a {
   border: 1px solid #d2a322;
   color: #d2a322;
 }
+.btn.btn-muted {
+  background-image: none;
+  background: #dbd8d2;
+  border: 1px solid #a29b8b;
+  color: #a29b8b;
+}
 .views-more-link {
   font-family: Georgia,serif;
   font-style: italic;

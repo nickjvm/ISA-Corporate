@@ -42,6 +42,9 @@ function marketsnapshot_content() {
 	$html = "
 		<script type='text/javascript' src='http://iasoybeans.websol.barchart.com/?module=marketSnapshot&js=1'>
 		</script>
+		<div class='attribution'>
+			<a target='_blank' title='Market Data by Barchart' href='http://www.barchartmarketdata.com/'>Market Data</a> provided by Barchart.com
+		</div>
 		<ul class='buttons'>
 		<li><a class='btn btn-muted' href='/markets'>more markets <i class='fa fa-chevron-circle-right'></i></a></li></ul>";
 	return $html;

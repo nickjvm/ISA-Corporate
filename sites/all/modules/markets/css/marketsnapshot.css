@@ -1,6 +1,5 @@
 .marketSnapshot.bcPL {
   margin: auto;
-  margin-bottom: 1em;
   max-width: 100%;
 }
 .marketSnapshot.bcPL td {
@@ -8,4 +7,9 @@
 }
 .marketSnapshot.bcPL .quoteTable th {
   color: #0D4D8C;
+}
+.attribution {
+  padding: 3px;
+  font-size: 12px;
+  margin-bottom: 1em;
 }

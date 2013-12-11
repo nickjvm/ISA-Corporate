@@ -11,7 +11,9 @@ function html_title_parse_defaults() {
 }
 
 function html_title_preprocess_page(&$variables) {
-   $variables['title'] = filter_xss($variables['node']->title,html_title_parse_defaults());
+  if($variables['node']) {
+       $variables['title'] = filter_xss($variables['node']->title,html_title_parse_defaults());
+  }
 }
 
 function html_title_permission() {

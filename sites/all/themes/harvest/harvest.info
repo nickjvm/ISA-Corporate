@@ -30,7 +30,6 @@ scripts[] = js/jqplot.barRenderer.min.js
 scripts[] = js/jqplot.categoryAxisRenderer.min.js
 scripts[] = js/jqplot.pointLabels.min.js
 scripts[] = js/jqplot.canvasAxisLabelRenderer.min.js
-scripts[] = js/jqplot.canvasAxisLabelRenderer.min.js
 scripts[] = js/jqplot.canvasTextRenderer.min.js
 scripts[] = js/mediaelement-and-player.js
 scripts[] = js/video.js

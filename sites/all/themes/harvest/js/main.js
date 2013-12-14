@@ -65,10 +65,11 @@ $(document).ready(function() {
             !$(this).closest(".contextual-links-wrapper").length && 
             !$(this).closest(".tabs").length && 
             !$(this).data("audioSrc")) {
-            e.preventDefault();
+            
             var url = $(this).attr("href");
 
             if(isExternal(url)) {
+                e.preventDefault();
                 //get the domain of the url
                 var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
                 $.magnificPopup.open({
@@ -102,16 +103,12 @@ $(document).ready(function() {
                       }
                   }
                 });
-            } else {
-                //internal, allow to proceed without interruption.
-                document.location = url
-            }
+            } 
         }
     });
 })
 
 var safeList = [
-    "ussec",
     "iasoybeans",
     "iowafoodandfamily",
     "iowabiodiesel",

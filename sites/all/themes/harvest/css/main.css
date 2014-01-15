@@ -448,6 +448,7 @@ a {
 #content-main img {
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 #content-main #map-canvas {
   margin-bottom: 1em;
@@ -1036,7 +1037,7 @@ a {
   #full-nav ul {
     text-align: left;
   }
-  #full-nav .col-md-8 {
+  #full-nav .col-md-9 {
     margin-top: 11px;
   }
   #full-nav .logo {

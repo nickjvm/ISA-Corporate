@@ -15,14 +15,13 @@
                       <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>"/>
                     </a>
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                     <?php if (isset($main_menu)) : ?>
 <?php print render($main_menu_expanded); ?>                    <?php endif; ?>
                     <?php //if (isset($secondary_menu)) : ?>
                       <?php //print theme('links', array('links' => $secondary_menu, 'attributes' => array('class' => 'links secondary-menu'))) ?>
                     <?php //endif; ?>
                   </div>
-                  <div class="col-sm-1"></div>
                 </div>
               </div>
             </nav>

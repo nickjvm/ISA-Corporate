@@ -28,12 +28,17 @@
 
 	<?php print $page_bottom; ?>
   
-   <script>
-   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-     g.src='//www.google-analytics.com/ga.js';
-     s.parentNode.insertBefore(g,s)}(document,'script'));
-   </script>
+   <script type="text/javascript"> 
+     var cdJsHost = (("https:" == document.location.protocol) ? "https://" : "http://"); 
+     document.write(unescape("%3Cscript src='" + cdJsHost + "analytics.clickdimensions.com/ts.js' type='text/javascript'%3E%3C/script%3E")); 
+   </script> 
+
+   <script type="text/javascript"> 
+     var cdAnalytics = new clickdimensions.Analytics('analytics.clickdimensions.com'); 
+     cdAnalytics.setAccountKey('auBdhjANfEZXXVMGG7UjQ'); 
+     cdAnalytics.setDomain('iasoybeans.com'); 
+     cdAnalytics.trackPage(); 
+   </script> 
  </body>
  </html>
 

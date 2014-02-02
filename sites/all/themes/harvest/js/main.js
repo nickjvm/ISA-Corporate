@@ -8,7 +8,7 @@ $(document).ready(function() {
     StaffListing.init();
     Videos.init();
     Radios.init();
-
+    ReportPlayer.init();
     //Mobile Navigation
     $("#mobile-nav").on("click",function() {
         $(this).toggleClass("visible");
@@ -141,6 +141,25 @@ var MenuDropdowns = new function() {
         });
     }
 }
+var ReportPlayer = new function() {
+    var self = this;
+    self.init = function() {
+        if($("#report-player").length) {
+            $("#report-player").attr("src",$("#audio-group").find(".field-name-field-audio-file a").attr("href"));
+            self.player = new MediaElementPlayer("#report-player", {
+                pluginPath:'/sites/all/themes/harvest/js/'
+
+            });
+            self.attachHandlers();
+        }
+        
+    }
+    self.attachHandlers = function() {
+        var location = $("#audio-group").find(".field-name-field-audio-file a").attr("href");
+        self.player.play();
+    }
+}
+
 var Radios = new function() {
     var self= this;
 

@@ -1,0 +1,10 @@
+;$Id$
+
+name = Rotating Twitter Widget
+description = A simple Twitter widget rotating between associated ISA accounts
+package = Iowa Soybean Association
+core = 7.x
+files[] = rotating_twitter.module
+
+dependencies[] = views
+;php = 5.2

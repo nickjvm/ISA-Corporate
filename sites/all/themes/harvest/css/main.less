@@ -59,6 +59,9 @@ a {
 	font-weight:bold;
 	color:@blue;
 }
+.right {
+text-align:right;
+}
 #full-nav {
 	display:none;
 	background-color:@tWhite;
@@ -361,7 +364,9 @@ a {
 	img {
 	 	max-width:100%;
 	 	height:auto;
-	 	width:100%;
+	 	&.file-icon {
+	 		width:auto;
+	 	}
 	}
 	#map-canvas {
 		margin-bottom:1em;
@@ -392,7 +397,7 @@ a {
 			padding:0;
 		}
 	}
-	.story {
+	.view-frontpage .story {
 		display:table;
 		margin-bottom: 2em;
 		padding-bottom: 2em;
@@ -415,6 +420,8 @@ a {
 		}
 		&:last-child {
 			border-bottom:0;
+			padding-bottom:0;
+			margin-bottom:0;
 		}
 		.body-img {
 			display:block;
@@ -757,7 +764,7 @@ a {
 		}
 	}
 	#content-main {
-	
+		
 		.sidebar {
 			margin-left:-1px;
 			border-left:1px solid @contrastGray;
@@ -773,9 +780,11 @@ a {
 				vertical-align:top;
 			}
 		}
-		.story {
-			.story-img {
-				display:table-cell;
+		.view-frontpage {
+			.story {
+				.story-img {
+					display:table-cell;
+				}
 			}
 		}
 	}
@@ -1427,5 +1436,26 @@ box-shadow: 0px 1px 10px -4px #000;
 			display:block;
 			width:100%;
 		}
+	}
+}
+
+.view-iowa-soybean-market-watch-weekly- {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 1em;
+	.listen {
+		text-align:right;
+	}
+	h1 {
+		color:@blue;
+	}
+	.story-img {
+		width:27%;
+		float:left;
+		padding:50px 30px 50px 0;
+		display:table-cell;
+	}
+	.story-teaser {
+		display:table-cell;
 	}
 }

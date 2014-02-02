@@ -1,0 +1,21 @@
+#twitter-feeds {
+  position: relative;
+}
+#twitter-feeds div {
+  position: absolute;
+  background: #FFF;
+  top: 0;
+  width: 100%;
+}
+#twitter-feeds div .twitter-feed {
+  margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  -webkit-transition: all .5s;
+}
+#twitter-feeds div .twitter-feed.active {
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+}

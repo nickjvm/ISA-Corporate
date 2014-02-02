@@ -152,6 +152,9 @@ a {
   font-weight: bold;
   color: #0d4d8c;
 }
+.right {
+  text-align: right;
+}
 #full-nav {
   display: none;
   background-color: rgba(245, 245, 245, 0.9);
@@ -448,7 +451,9 @@ a {
 #content-main img {
   max-width: 100%;
   height: auto;
-  width: 100%;
+}
+#content-main img.file-icon {
+  width: auto;
 }
 #content-main #map-canvas {
   margin-bottom: 1em;
@@ -476,43 +481,45 @@ a {
   list-style-type: none;
   padding: 0;
 }
-#content-main .story {
+#content-main .view-frontpage .story {
   display: table;
   margin-bottom: 2em;
   padding-bottom: 2em;
   border-bottom: 1px solid #c7cbcb;
 }
-#content-main .story > div {
+#content-main .view-frontpage .story > div {
   display: table-cell;
   float: none;
   vertical-align: top;
 }
-#content-main .story .story-img {
+#content-main .view-frontpage .story .story-img {
   width: 27%;
   display: none;
   padding-right: 30px;
 }
-#content-main .story h2 {
+#content-main .view-frontpage .story h2 {
   margin-top: 0;
 }
-#content-main .story p {
+#content-main .view-frontpage .story p {
   margin-bottom: 0;
 }
-#content-main .story:last-child {
+#content-main .view-frontpage .story:last-child {
   border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
-#content-main .story .body-img {
+#content-main .view-frontpage .story .body-img {
   display: block;
   text-align: center;
   padding-bottom: 1em;
 }
-#content-main .story .body {
+#content-main .view-frontpage .story .body {
   display: block;
 }
-#content-main .story .body p {
+#content-main .view-frontpage .story .body p {
   margin-bottom: 1em;
 }
-#content-main .story .body p:last-child {
+#content-main .view-frontpage .story .body p:last-child {
   margin-bottom: 0;
 }
 #content-main .sidebar .isa-now-logo {
@@ -850,7 +857,7 @@ a {
     display: table-cell;
     vertical-align: top;
   }
-  #content-main .story .story-img {
+  #content-main .view-frontpage .story .story-img {
     display: table-cell;
   }
   .sticky {
@@ -1461,4 +1468,24 @@ a {
     display: block;
     width: 100%;
   }
+}
+.view-iowa-soybean-market-watch-weekly- {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 1em;
+}
+.view-iowa-soybean-market-watch-weekly- .listen {
+  text-align: right;
+}
+.view-iowa-soybean-market-watch-weekly- h1 {
+  color: #0d4d8c;
+}
+.view-iowa-soybean-market-watch-weekly- .story-img {
+  width: 27%;
+  float: left;
+  padding: 50px 30px 50px 0;
+  display: table-cell;
+}
+.view-iowa-soybean-market-watch-weekly- .story-teaser {
+  display: table-cell;
 }

@@ -1,0 +1,41 @@
+<?php
+function rotating_twitter_block_info() {
+  $blocks = array();
+
+  $blocks['rotating_twitter'] = array(
+    'info' => t('A simple rotating Twitter Feed')
+  );
+
+  return $blocks;
+}
+
+function rotating_twitter_block_view($block_name = '') {
+  if ($block_name == 'rotating_twitter') {
+
+    $block['content'] = array(
+
+      '#markup' => rotating_twitter_content(),
+      '#attached' => array(
+      	'css' => array(
+      		drupal_get_path('module', 'rotating_twitter') . '/css/rotating_twitter.css'
+        	),
+      	"js"=>array(
+      		drupal_get_path("module","rotating_twitter")."/js/rotating_twitter.js"
+      		)
+      	)
+      );
+
+    return $block;
+  }
+}
+
+function rotating_twitter_content() {
+	$html = "<div id='twitter-feeds'>";
+	//blocks established in the "tweets" view
+	$html .= views_embed_view("tweets","block");
+	$html .= views_embed_view("tweets","block_1");
+	$html .= views_embed_view("tweets","block_2");
+	$html .= views_embed_view("tweets","block_3");
+	$html .= "</div>";
+	return $html;
+}

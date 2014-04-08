@@ -2,13 +2,7 @@ var $ = jQuery;
 
 $(document).ready(function() {
 
-    DynamicLead.init();
-    ProgramSlideshow.init();
-    MenuDropdowns.init();
-    StaffListing.init();
-    Videos.init();
-    Radios.init();
-    ReportPlayer.init();
+   
     //Mobile Navigation
     $("#mobile-nav").on("click",function() {
         $(this).toggleClass("visible");
@@ -55,8 +49,43 @@ $(document).ready(function() {
             }
         }
     });
+    window.ReportPlayer = new function() {
+        var self = this;
+        self.init = function() {
+            if($("#report-player").length) {
+                $("#report-player").attr("src",$("#audio-group").find(".field-name-field-audio-file a").attr("href"));
+                self.player = new MediaElementPlayer("#report-player", {
+                    pluginPath:'/sites/all/themes/harvest/js/'
 
+                });
+                self.attachHandlers();
+            }
+            
+        }
 
+        self.AudioLocation = $(".field-name-field-audio-file a","#audio-group");
+
+        self.attachHandlers = function() {
+
+            if($(".lt-ie9").length) {
+                $("#audio-group .mejs-container").hide();
+                //show link for IE8.
+                $("#audio-group .hidden").removeClass("hidden")
+                $(self.AudioLocation).text("Download .mp3 file");
+            } else {
+                var location = $("#audio-group").find(".field-name-field-audio-file a").attr("href");
+                self.player.setSrc(location);
+                self.player.play();
+            }
+        }
+    }
+    DynamicLead.init();
+    ProgramSlideshow.init();
+    MenuDropdowns.init();
+    StaffListing.init();
+    Videos.init();
+    Radios.init();
+    ReportPlayer.init();
     //External URL notification
     $("a").on("click",function(e) {
         //proceed to check url if it's not already attached to an internal lightbox
@@ -141,24 +170,7 @@ var MenuDropdowns = new function() {
         });
     }
 }
-var ReportPlayer = new function() {
-    var self = this;
-    self.init = function() {
-        if($("#report-player").length) {
-            $("#report-player").attr("src",$("#audio-group").find(".field-name-field-audio-file a").attr("href"));
-            self.player = new MediaElementPlayer("#report-player", {
-                pluginPath:'/sites/all/themes/harvest/js/'
 
-            });
-            self.attachHandlers();
-        }
-        
-    }
-    self.attachHandlers = function() {
-        var location = $("#audio-group").find(".field-name-field-audio-file a").attr("href");
-        self.player.play();
-    }
-}
 
 var Radios = new function() {
     var self= this;

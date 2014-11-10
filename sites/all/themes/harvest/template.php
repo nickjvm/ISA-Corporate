@@ -1,4 +1,5 @@
 <?php
+
 function harvest_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_block_form') {
     $form['search_block_form']['#title'] = t('Search'); // Change the text on the label element
@@ -39,6 +40,7 @@ function harvest_preprocess_page(&$variables) {
         }
 
 }
+
 function harvest_preprocess_node(&$vars, $hook) {
     $vars['submitted'] = t('Published on @date by !user', array('!user' => $vars['name'],'@date' => date("l, F jS, Y", $vars['created'])));
 }

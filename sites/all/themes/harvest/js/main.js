@@ -140,7 +140,6 @@ $(document).ready(function() {
 var safeList = [
     "iasoybeans",
     "iowafoodandfamily",
-    "iowabiodiesel",
     "thesoyfoodscouncil",
     "planthealth",
     "ag-urbanleadership",

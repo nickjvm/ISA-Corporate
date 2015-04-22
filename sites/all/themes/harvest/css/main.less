@@ -23,12 +23,38 @@
    Author's custom styles
    ========================================================================== */
 
+#webform-client-form-1155 {
+    .form-item .form-radios{
+        float:right;
+        min-width: 350px;
+		float:right;
+    }
+    .webform-component-radios {
+        clear:both;
+        border-bottom: 1px solid rgb(222, 222, 222);
+        padding-bottom:5px;
+        overflow: hidden;
+    }
+    #webform-component-1130---wrap-up--adjournment {
+        border-bottom-width:0;
+    }
+    .description {
+        max-width: 280px;
+    }
+
+    #webform-component-thursday-dec-18 legend,
+    #webform-component-wednesday-dec-17 legend {
+        font-size:1.4em;
+        border-bottom:0;
+        margin-bottom:0
+    }
+}
+
+#webform-client-form-1155 .form-radios {
+}
 body {
 	color:@black;
 	font:14px/1.6 "Helvetica Neue",Helvetica,sans-serif;
-}
-#webform-client-form-1155 .form-radios {
-float:right;
 }
 h1, h2, h3, h4 {
 	font-family:Georgia,"Times New Roman",serif;
@@ -600,7 +626,12 @@ text-align:right;
 	}
 	.region-secondary, .region-secondary div {
 		display:inline;
+		&.view-funding-statement {
+			font-weight: bold;
+			display:block;
+		}
 	}
+	
 }
 
 .staff {
@@ -1027,6 +1058,17 @@ text-align:right;
 	.not-front {
 		.jumbotron {
 			margin-top:-85px;
+		}
+	}
+
+	#content-footer-secondary {
+		.region-secondary div.view-funding-statement {
+			background: rgba(255, 255, 255, 0.5);
+			display: inline-block;
+			padding: 10px 17px;
+			margin: -7px 10px;
+			border: 1px solid rgba(119, 120, 123, 0.39);
+			border-width: 0 1px;
 		}
 	}
 }

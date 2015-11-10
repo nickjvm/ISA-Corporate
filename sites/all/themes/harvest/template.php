@@ -33,11 +33,15 @@ function harvest_preprocess_page(&$variables) {
     $variables['page_head_image'] = views_embed_view('page_image','block_1');
     $main_menu_tree = menu_tree_all_data('main-menu');
       // Add the rendered output to the $main_menu_expanded variable
-      $variables['main_menu_expanded'] = menu_tree_full("main-menu");
-         if (isset($variables['node'])) {
+    $variables['main_menu_expanded'] = menu_tree_full("main-menu");
+    if (isset($variables['node'])) {
 
-            $variables['submitted'] = t('Published on @date', array('@date' => date("l, F jS, Y", $variables['node']->created)));
-        }
+        $variables['submitted'] = t('Published on @date', array('@date' => date("l, F jS, Y", $variables['node']->created)));
+    }
+
+    if (strpos(drupal_get_path_alias("node/{$variables['node']->nid}"),'award') !== false) {
+        drupal_add_css(drupal_get_path('theme', 'harvest') . "/css/award.css");
+    }
 
 }
 
@@ -50,6 +54,7 @@ function harvest_preprocess_block(&$variables, $hook) {
     }
     //print_r($variables);
 }
+
 
 function menu_tree_full($menu_name = 'navigation') {
   static $menu_output = array();

@@ -1,0 +1,69 @@
+.webform-component-fieldset {
+    margin-top:1em;
+}
+.webform-component-fieldset legend {
+    margin-bottom:0
+}
+@media(min-width:768px) {
+    .fieldset-wrapper {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    #webform-component-nominees-information--street-address,
+    #webform-component-your-information--street-address {
+        width:40%;
+    }
+    #webform-component-nominees-information--city,
+    #webform-component-your-information--city {
+        width:30%
+    }
+    #webform-component-nominees-information--your-state,
+    #webform-component-nominees-information--zip-code,
+    #webform-component-your-information--state,
+    #webform-component-your-information--zip {
+        width: 15%;
+    }
+
+    #webform-component-nominees-information--primary-phone,
+    #webform-component-nominees-information--secondary-phone,
+    #webform-component-nominees-information--email-address,
+    #webform-component-your-information--primary-phone,
+    #webform-component-your-information--secondary-phone,
+    #webform-component-your-information--email-address {
+        width:33.333%
+    }
+}
+
+.form-item {
+    padding-right:2%;
+    width:100%;
+    margin-bottom: 0;
+}
+select {
+    max-width:100%;
+    height:28px;
+    border-radius:0px;
+    background:#FFF;
+    border:1px solid #EEE;
+}
+input[type=text],
+input[type=number],
+input[type=email]{
+    width:100%;
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+textarea {
+    border:1px solid #eee;
+}
+
+.webform-client-form .webform-component-textarea label {
+    width:98%;
+}
